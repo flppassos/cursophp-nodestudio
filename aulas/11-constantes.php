@@ -11,5 +11,15 @@ echo 'Meu nome é '.NOME.' e minha idade é '.IDADE.' e minha altura é '.ALTURA
 echo "<hr>";
 
 echo TIMES[1];
+echo "<hr>";
+
+var_dump(TIMES);
+echo "<hr>";
+
+function exibeNome(){
+    echo NOME;
+}
+
+exibeNome();
 
 ?>
