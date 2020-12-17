@@ -104,3 +104,5 @@ echo "<hr>";
 $meses = array("Janeiro", "Fevereiro", "Março");
 $str = implode(", ", $meses);
 print_r($str);
+
+?>
