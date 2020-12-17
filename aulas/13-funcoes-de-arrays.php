@@ -1,7 +1,7 @@
 <?php
 /*
  * is_array($array) = verificar se uma determinada variável é um array
- * in_array($valor, $array) = verifica se um determinado valor existe em alguma posição 
+ * in_array($valor, $array) = verifica se um determinado valor existe em alguma posição
  * array_keys($array) = retorna um novo array com as chaves do array passado como parametro
  * array_values($array) = retorna um novo array com os valores do array passado como parametro
  * array_merge($array1, $array2) = agrega o conteúdo dos dois arrays
@@ -15,18 +15,18 @@
  * implode("-", $array) = transforma array em string
  */
 
-$nomes = array("Eu"=>"Felipe", "Namorada"=>"Bruna", "Mãe"=>"Marisa", "Irma"=>"Fernanda");
+$nomes = array("Eu" => "Felipe", "Namorada" => "Bruna", "Mãe" => "Marisa", "Irma" => "Fernanda");
 
 //verifica se é um array
-if(is_array($nomes)):
-        echo "é um array";
-    else:
-        echo "não é um array";
+if (is_array($nomes)):
+    echo "é um array";
+else:
+    echo "não é um array";
 endif;
 echo "<hr>";
 
 //verifica se o conteudo existe no array
-if(in_array("Felipe", $nomes)):
+if (in_array("Felipe", $nomes)):
     echo "Nome encontrado";
 else:
     echo "Nome não encontrado";
@@ -104,5 +104,3 @@ echo "<hr>";
 $meses = array("Janeiro", "Fevereiro", "Março");
 $str = implode(", ", $meses);
 print_r($str);
-
-?>
