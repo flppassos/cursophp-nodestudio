@@ -7,6 +7,13 @@ FILTER_VALIDATE_FLOAT
 FILTER_VALIDATE_IP
 FILTER_VALIDATE_URL
 */
+/* Sanitização
+Funções (filter_unput - filter_var)
+FILTER_SANITIZE_SPECIAL_CHARS
+FILTER_SANITIZE_INT
+FILTER_SANITIZE_EMAIL
+FILTER_SANITIZE_URL
+*/
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +66,26 @@ FILTER_VALIDATE_URL
             }*/
 
             //Sanitize
+            //$nome = $_POST['nome']; //Sem tratamento sanitize
             $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-            //echo $nome."<br>";
+            echo $nome."<br>";
+
+            $idade = filter_input(INPUT_POST, 'idade', FILTER_SANITIZE_NUMBER_INT);
+            if(!filter_var($idade, FILTER_VALIDATE_INT)){
+                $erros[] = "Idade precisa ser um inteiro";
+            }else{
+                echo $idade."<br>";
+            }
+
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                $erros[] = "Email inválido.";
+            }else{
+                echo $email."<br>";
+            }
+
+            $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_URL);
+            echo $url."<br>";
 
             //var_dump($erros);
 
