@@ -1,6 +1,10 @@
 <?php 
+//Conexão
+include_once 'php_action/connect.php';
 //Cabeçalho da Página
 include_once 'includes/header.php';
+//Mensagem
+include_once 'includes/mensagem.php';
 ?>
 
 <div class="row">
@@ -16,22 +20,26 @@ include_once 'includes/header.php';
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Felipe</td>
-                    <td>Passos</td>
-                    <td>felipef@minasligas.com.br</td>
-                    <td>27</td>
-                    <td><a href="" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
-                    <td><a href="" class="btn-floating red"><i class="material-icons">delete</i></a></td>
-                </tr>
+                <?php
+                    $sql = "SELECT * FROM clientes";
+                    $resultado = mysqli_query($connect, $sql);
+                    while ($dados = mysqli_fetch_array($resultado)) {
+                        echo "<tr>";
+                            echo "<td>". $dados['nome'] ."</td>";
+                            echo "<td>". $dados['sobrenome'] ."</td>";
+                            echo "<td>". $dados['email'] ."</td>";
+                            echo "<td>". $dados['idade'] ."</td>";
+                            echo "<td><a href='editar.php?id=".$dados['id']." class='btn-floating orange'><i class='material-icons'>edit</i></a></td>";
+                            echo "<td><a href='' class='btn-floating red'><i class='material-icons'>delete</i></a></td>";
+                        echo "</tr>";
+                    }
+                ?>
             </tbody>
         </table>
         <br>
-        <a href="" class="btn">Adicionar Cliente</a>
+        <a href="adicionar.php" class="btn">Adicionar Cliente</a>
     </div>
 </div>
-
-
 
 <?php
 //Rodapé da Página
